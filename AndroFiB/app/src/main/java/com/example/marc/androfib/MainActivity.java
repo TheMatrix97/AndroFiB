@@ -8,7 +8,10 @@ import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.Menu;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -31,13 +34,38 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        work();
+
+
+    }
+    private void work(){
         URL A5 = crear_URL(urlA5);
         URL C6 = crear_URL(urlC6);
         URL B5 = crear_URL(urlB5);
         System.out.println("WORKED " + A5.getHost());
         new DownloadFile().execute(A5,B5,C6);
+    }
+    //MENU --->
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.action_bar,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch(item.getItemId()){
+            case R.id.action_refresh:
+                work();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
 
     }
+
+
+
     private void add_child(final Bitmap[] bitmapArray){
         runOnUiThread(new Runnable() {
             @Override
