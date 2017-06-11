@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingLeft="16dp"
@@ -10,7 +10,6 @@
     android:paddingBottom="8dp"
     android:orientation="vertical"
     android:id="@+id/content">
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -39,7 +38,7 @@
                 android:id="@+id/A5"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:src="@mipmap/default_img"
+                android:src="@drawable/ic_image_default"
                 />
             <!-- B5 -->
             <TextView
@@ -55,7 +54,7 @@
                 android:id="@+id/B5"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:src="@mipmap/default_img"
+                android:src="@drawable/ic_image_default"
                 />
             <!-- C6 -->
             <TextView
@@ -71,12 +70,20 @@
                 android:id="@+id/C6"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:src="@mipmap/default_img"
+                android:src="@drawable/ic_image_default"
                 />
         </LinearLayout>
     </ScrollView>
+    <ProgressBar
+        android:id="@+id/pb"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerInParent="true"
+        android:visibility="visible"
+
+        />
 
 
 
-</LinearLayout>
+</RelativeLayout>
 

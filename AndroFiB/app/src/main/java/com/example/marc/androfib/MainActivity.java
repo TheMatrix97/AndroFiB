@@ -23,6 +23,7 @@ import java.net.URL;
 import java.lang.Integer;
 import java.net.HttpURLConnection;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -39,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
     private void work(){
+        ProgressBar pb = (ProgressBar) findViewById(R.id.pb);
+        pb.setVisibility(View.VISIBLE);
         URL A5 = crear_URL(urlA5);
         URL C6 = crear_URL(urlC6);
         URL B5 = crear_URL(urlB5);
@@ -108,6 +111,8 @@ public class MainActivity extends AppCompatActivity {
         protected void onProgressUpdate(Integer... progress) {
         }
         protected void onPostExecute(Boolean res){
+            ProgressBar pb = (ProgressBar) findViewById(R.id.pb);
+            pb.setVisibility(View.INVISIBLE);
             if(res) System.out.println("succes!");
             else System.out.println("error");
         }
