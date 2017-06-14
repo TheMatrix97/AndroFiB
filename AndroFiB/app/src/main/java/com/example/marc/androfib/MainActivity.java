@@ -61,15 +61,20 @@ public class MainActivity extends AppCompatActivity {
         popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                                              @Override
                                              public boolean onMenuItemClick(MenuItem item) {
+                                                 Intent intent;
                                                  switch (item.getItemId()){
-                                                     case R.id.avisos:
+                                                     case R.id.raco:
                                                          System.out.println("HOLA MUNDO1!!!");
-                                                         Intent intent = new Intent(MainActivity.this, AvisosActivity.class);
+                                                         intent = new Intent(MainActivity.this, RacoActivity.class);
                                                          startActivity(intent);
                                                          return true;
                                                      case R.id.mapa:
                                                          //no hagas nada, ya estas en el mapa
                                                          return true;
+                                                     case R.id.perfil:
+                                                         intent = new Intent(MainActivity.this, PerfilActivity.class);
+                                                         startActivity(intent);
+
                                                  }
                                                  return false;
                                              }
@@ -95,10 +100,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
-
-
-
-
 
     private void add_child(final Bitmap[] bitmapArray){
         runOnUiThread(new Runnable() {

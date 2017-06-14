@@ -17,7 +17,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AvisosActivity"
+        <activity android:name=".RacoActivity"
+            android:launchMode="singleTask"/>
+        <activity android:name=".PerfilActivity"
             android:launchMode="singleTask"/>
     </application>
 
