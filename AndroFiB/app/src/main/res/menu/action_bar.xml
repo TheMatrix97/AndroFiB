@@ -6,5 +6,11 @@
         android:title="refresh"
         app:showAsAction="ifRoom"
         />
+    <item android:id="@+id/nav"
+        android:icon="@drawable/ic_action_nav"
+        android:title="nav"
+        app:showAsAction="always"
+        android:onClick="OnClickNav"
+    />
 
 </menu>

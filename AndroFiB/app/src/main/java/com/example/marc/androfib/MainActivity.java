@@ -1,6 +1,7 @@
 package com.example.marc.androfib;
 
 import android.app.ActionBar;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.Image;
@@ -23,6 +24,7 @@ import java.net.URL;
 import java.lang.Integer;
 import java.net.HttpURLConnection;
 import android.widget.LinearLayout;
+import android.widget.PopupMenu;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -48,6 +50,33 @@ public class MainActivity extends AppCompatActivity {
         System.out.println("WORKED " + A5.getHost());
         new DownloadFile().execute(A5,B5,C6);
     }
+    public boolean OnClickNav(MenuItem item){
+        showMenu(findViewById(item.getItemId()));
+        return true;
+    }
+    public void showMenu(View v){
+        PopupMenu popup = new PopupMenu(this,v);
+        MenuInflater inflater = popup.getMenuInflater();
+        inflater.inflate(R.menu.nav, popup.getMenu());
+        popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                                             @Override
+                                             public boolean onMenuItemClick(MenuItem item) {
+                                                 switch (item.getItemId()){
+                                                     case R.id.avisos:
+                                                         System.out.println("HOLA MUNDO1!!!");
+                                                         Intent intent = new Intent(MainActivity.this, AvisosActivity.class);
+                                                         startActivity(intent);
+                                                         return true;
+                                                     case R.id.mapa:
+                                                         //no hagas nada, ya estas en el mapa
+                                                         return true;
+                                                 }
+                                                 return false;
+                                             }
+                                         });
+        popup.show();
+    }
+
     //MENU --->
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
@@ -66,6 +95,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
+
 
 
 
@@ -131,4 +162,5 @@ public class MainActivity extends AppCompatActivity {
         }
         return t;
     }
+
 }
